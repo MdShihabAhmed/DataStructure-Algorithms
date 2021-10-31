@@ -1,52 +1,52 @@
 import random
 import funcRunTime
 
-#Generating array of random numbers 0 to n
-def generateArray(n):
-    array = [random.randint(0, n+1) for _ in range(n)]
+#Generating array of random numbers 0 to size
+def generateArray(size):
+    array = [random.randint(0, size+1) for _ in range(size)]
     return array  
 
 @funcRunTime.timer #decorator used for time count
-def mergeSort(arr):
-    if len(arr)<=1:
+def mergeSort(array):
+    if len(array)<=1:
         return
 
-    m=len(arr)//2
-    f=arr[:m]
-    l=arr[m:]
+    mid=len(array)//2
+    firstHalf=array[:mid]
+    lastHalf=array[mid:]
 
-    # print('Dividing: ', arr)
-    mergeSort(f)
-    mergeSort(l)
+    # print('Dividing: ', array)
+    mergeSort(firstHalf)
+    mergeSort(lastHalf)
 
     i=j=k=int(0)
-    while i<len(f) and j<len(l):
-        if f[i]<l[j]:
-            arr[k]=f[i]
+    while i<len(firstHalf) and j<len(lastHalf):
+        if firstHalf[i]<lastHalf[j]:
+            array[k]=firstHalf[i]
             i+=1
         else:
-            arr[k]=l[j]
+            array[k]=lastHalf[j]
             j+=1
         k+=1
     
-    while i<len(f):
-        arr[k]=f[i]
+    while i<len(firstHalf):
+        array[k]=firstHalf[i]
         i+=1
         k+=1
     
-    while j<len(l):
-        arr[k]=l[j]
+    while j<len(lastHalf):
+        array[k]=lastHalf[j]
         j+=1
         k+=1
     
-    # print('Sorted Combining: ',arr)
+    # print('Sorted Combining: ',array)
 
-n = int(input("Enter size of the array: "))
-arr=generateArray(n)
+size = int(input("Enter size of the array: "))
+array=generateArray(size)
 
-# print("Array before sort: ", arr, sep='\n')
-mergeSort(arr)
+# print("Array before sort: ", array, sep='\n')
+mergeSort(array)
 
-print("\nArray after Merge Sort: ", arr, sep='\n')
+print("\nArray after Merge Sort: ", array, sep='\n')
 
 print("\nTime: ", funcRunTime.timeNeeded)
