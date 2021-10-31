@@ -1,7 +1,7 @@
 import random
 import funcRunTime
 
-#Generating array of random numbers upto n
+#Generating array of random numbers up to n
 def generateArray(n):
     array = [random.randint(0, n) for _ in range(n)]
     return array
