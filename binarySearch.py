@@ -1,15 +1,16 @@
 import random
 import funcRunTime
 
-
+#Generating array of random numbers upto n
 def generateArray(n):
     array = [random.randint(0, n) for _ in range(n)]
     return array
 
+#sorting the array
 def sortArray(arr):
     return sorted(arr)
 
-@funcRunTime.timer
+@funcRunTime.timer #decorator used for time count
 def binarySearch(arr, key):
     if(len(arr)<1):
         return -1
