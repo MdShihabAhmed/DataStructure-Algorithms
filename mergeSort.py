@@ -1,7 +1,7 @@
 import random
 import funcRunTime
 
-#Generating array of random numbers 0 to size
+#Generating array of random integers 0 to size
 def generateArray(size):
     array = [random.randint(0, size+1) for _ in range(size)]
     return array  
