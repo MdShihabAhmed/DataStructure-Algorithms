@@ -1,9 +1,9 @@
 import random
 import funcRunTime
 
-#Generating array of random integers 0 to size
+#Generating array of random integers -size to size
 def generateArray(size):
-    array = [random.randint(0, size+1) for _ in range(size)]
+    array = [random.randint(-size, size+1) for _ in range(size)]
     return array  
 
 @funcRunTime.timer #decorator used for time count
@@ -17,9 +17,7 @@ def quickSort(array, l, r):
 
     while(i<=j):
         if array[i]>pivot:
-            print('b', array)
             array[i],array[j]=array[j],array[i]
-            print('a', array)
             j-=1
         else:
             i+=1
@@ -33,7 +31,7 @@ def quickSort(array, l, r):
 size = int(input("Enter size of the array: "))
 array=generateArray(size)
 
-print("Array before sort: ", array, sep='\n')
+# print("Array before sort: ", array, sep='\n')
 quickSort(array, 0, len(array)-1)
 
 print("\nArray after Quick Sort: ", array, sep='\n')

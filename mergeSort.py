@@ -1,9 +1,9 @@
 import random
 import funcRunTime
 
-#Generating array of random integers 0 to size
+#Generating array of random integers -size to size
 def generateArray(size):
-    array = [random.randint(0, size+1) for _ in range(size)]
+    array = [random.randint(-size, size+1) for _ in range(size)]
     return array  
 
 @funcRunTime.timer #decorator used for time count

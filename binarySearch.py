@@ -1,9 +1,9 @@
 import random
 import funcRunTime
 
-#Generating array of random numbers 0 to n
+#Generating array of random numbers -n to n
 def generateArray(n):
-    array = [random.randint(0, n+1) for _ in range(n)]
+    array = [random.randint(-n, n+1) for _ in range(n)]
     return array
 
 #sorting the array
